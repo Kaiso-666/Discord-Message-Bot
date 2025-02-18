@@ -1,1 +1,20 @@
-https://github.com/Kaiso-666/Discord-Message-Bot
+name: Run install.sh
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  run-install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Grant execute permission to install.sh
+        run: chmod +x ./install.sh
+
+      - name: Run install.sh script
+        run: ./install.sh
